@@ -10,10 +10,18 @@ class Pantry
   end
 
   def stock_check(ingredient)
-    @stock[ingredient]
+    if @stock[ingredient] == nil
+      0
+    else
+      @stock[ingredient]
+    end
   end
 
   def restock(ingredient, restock_amount)
+    if @stock[ingredient] == nil
+      @stock[ingredient] = restock_amount
+    else
     @stock[ingredient] += restock_amount
+    end
   end
 end
