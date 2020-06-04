@@ -1,19 +1,24 @@
 class Recipe
   attr_reader :name,
-              :ingredients_required,
-              :ingredients
+              :ingredients_required
 
   def initialize(name)
     @name = name
     @ingredients_required = Hash.new(0)
-    @ingredients = []
   end
 
   def add_ingredient(ingredient_name, amount)
     @ingredients_required[ingredient_name] += amount
-    if @ingredients.include?(ingredient_name) == false
-      @ingredients << ingredient_name
-    end
+  end
+
+  def ingredients
+    @ingredients_required.keys
+
+    # ingredients = []
+    # @ingredients_required.each do |ingredient, amount|
+    #   ingredients << ingredient
+    # end
+    # ingredients
   end
 
   def total_calories
