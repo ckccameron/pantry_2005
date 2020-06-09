@@ -1,9 +1,18 @@
 class CookBook
-  attr_reader :recipes
+  attr_reader :recipes,
+              :date
 
   def initialize
     @recipes = []
+    # @date = grab_date
+    @date = Date.today.strftime("%m-%d-%Y")
   end
+
+  # def grab_date
+  #   date = Time.now.to_s
+  #   date = date[0...10].split("-")
+  #   "#{date[1]}-#{date[2]}-#{date[0]}"
+  # end
 
   def add_recipe(recipe)
     @recipes << recipe
